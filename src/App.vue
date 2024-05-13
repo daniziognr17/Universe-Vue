@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="App">
+    <MyHeader />
+    <SearchBar @changeSearch="updateSearch"/>
+    <MyGalery :searchValue="searchValue"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import './styles/global.css';
+import MyHeader from './components/MyHeader';
+import SearchBar from './components/SearchBar';
+import MyGalery from './components/MyGalery';
 
 export default {
   name: 'App',
+
   components: {
-    HelloWorld
+    MyHeader,
+    SearchBar,
+    MyGalery
+  },
+
+  data() {
+    return {
+      searchValue: ''
+    }
+  },
+
+  methods: {
+    updateSearch (value) {
+      this.searchValue = value
+    }
   }
 }
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+</script>
