@@ -1,7 +1,8 @@
 <template>
     <header>
-        <h1>Universe Pics</h1>
-        <p id="about">About</p>
+        <p @click="this.$router.push('/');" id="home">Home</p>
+        <h1>Universe Vue</h1>
+        <p @click="this.$router.push('/about');" id="about">About</p>
     </header>
 </template>
 
@@ -34,5 +35,12 @@ header h1 {
     color: white;
     margin-right: 10px;
     font-weight: 600;
+    cursor: pointer;
+}
+
+#home {
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
 }
 </style>

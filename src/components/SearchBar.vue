@@ -5,7 +5,7 @@
         </div>
 
         <div id="searchButtonContainer">
-            <button v-on:click="changeSearch" id="searchButton"> Search </button>
+            <button v-on:click="loadNewSearch()" id="searchButton"> Search </button>
         </div>
 
     </div>
@@ -23,8 +23,13 @@ export default {
     },
 
     methods: {
-        changeSearch () {
-            this.$emit('changeSearch', this.search);
+        loadNewSearch() {
+            this.$router.push(
+                {
+                    path: '/' + this.search,
+                }
+            );
+            this.search = '';
         }
     }
 }
@@ -32,7 +37,6 @@ export default {
 </script>
 
 <style scoped>
-
 #searchBar {
     width: 100%;
     height: 10vh;
@@ -68,5 +72,4 @@ export default {
 #searchButton:hover {
     background-color: var(--btn-primary-hover);
 }
-
 </style>

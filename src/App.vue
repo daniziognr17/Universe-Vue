@@ -1,8 +1,8 @@
 <template>
   <div id="App">
     <MyHeader />
-    <SearchBar @changeSearch="updateSearch"/>
-    <MyGalery :searchValue="searchValue"/>
+    <SearchBar />
+    <router-view></router-view>
   </div>
 </template>
 
@@ -11,7 +11,6 @@
 import './styles/global.css';
 import MyHeader from './components/MyHeader';
 import SearchBar from './components/SearchBar';
-import MyGalery from './components/MyGalery';
 
 export default {
   name: 'App',
@@ -19,20 +18,13 @@ export default {
   components: {
     MyHeader,
     SearchBar,
-    MyGalery
   },
 
   data() {
     return {
-      searchValue: ''
+      searchValue: '',
     }
   },
-
-  methods: {
-    updateSearch (value) {
-      this.searchValue = value
-    }
-  }
 }
 
 </script>

@@ -5,7 +5,7 @@
             <img :src="register.links[0].href" alt="">
             <div id="imgTitle"> {{ register.data[0].title }}</div>
             <div id="imgDescription" v-html="register.data[0].description"></div>
-            <button id="btnMore">See More</button>
+            <button @click="seeMore(register)" id="btnMore">See More</button>
         </div>
     </div>
 
@@ -32,19 +32,20 @@ export default {
         this.getData('centauri');
     },
 
-    props: [
-        'searchValue'
-    ],
-
     watch: {
-        searchValue: function (value) {
-            this.getData(value);
+        '$route.params.search': {
+            handler: function (search) {
+                this.getData(search)
+            },
+            deep: true,
+            immediate: true
         }
     },
 
     methods: {
         getData(value) {
-            if (value == '') {
+            value = this.$route.params.search;
+            if (value == '' || value == undefined) {
                 value = 'Andromeda';
             }
 
@@ -77,6 +78,11 @@ export default {
                     }
                 }
             })
+        },
+
+        seeMore(value) {
+            this.$emit('changeCurrentRegister', value);
+            this.$router.push('/item/' + value.data[0].nasa_id);
         }
     }
 }
@@ -133,6 +139,6 @@ export default {
 }
 
 #btnMore:hover {
-background-color: var(--btn-primary-hover)
+    background-color: var(--btn-primary-hover)
 }
 </style>
