@@ -1,24 +1,7 @@
 # UNIVERSE VUE
 
-## Project setup
+## Sobre o projeto
 ```
-npm install
+Criei este projeto com o intuito de pôr em prática meus estudos em vue.js.
+Consiste em uma aplicação de busca de imagens da API oficial da NASA.
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
